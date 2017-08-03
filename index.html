@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>To do list</title>
+
+    <!-- Bootstrap -->
+    <link href="styles.css" rel="stylesheet">
+  </head>
+  <body>
+
+    <div class="container">
+      <div class="row appBox col-md-6">
+        <h2> My to do list</h2>
+        <div ng-app="thingsToDo" ng-controller="myCtrl">
+          <ul>
+            <li ng-repeat="x in tasks">
+              <p>{{x}}<span class="x-pad" ng-click="removeTask($index)"><button class="btn btn-danger">&times;</button></span></p>
+            </li>
+          </ul>
+          <input class="textArea" ng-model="newTask">
+          <button class="btn btn-info" ng-click="addTask()">Add</button>
+          <p>{{errortext}}</p>
+        </div>
+      </div>
+    </div>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular.min.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
